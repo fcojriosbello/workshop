@@ -4,7 +4,6 @@
 var io = require('socket.io')()
 var express = require('express')
 var bodyParser = require('body-parser')
-var beast = require('netbeast')
 
 var app = express()
 
@@ -19,13 +18,6 @@ var server = app.listen(argv.port || 31416, function () {
   console.log('Bulb plugin listening at http://%s:%s',
   server.address().address,
   server.address().port)
-  setTimeout(function changecolor () {
-        beast('lights').set({
-          color: "#9AD74C",
-          power: "on"
-        })
-  }, 3000)
-
 })
 
 // we need websockets to push updates to browser view
